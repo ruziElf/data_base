@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2" last-position="53,0" last-zoom="1" max-obj-count="19"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="limundoaukcija" layer="0" rect-visible="true" fill-color="#e1e1e1">
+</schema>
+
+<table name="prodavac" layer="0" collapse-mode="2" max-obj-count="6">
+	<schema name="limundoaukcija"/>
+	<position x="660" y="220"/>
+	<column name="korisnicko_ime" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="email">
+		<type name="text" length="0"/>
+	</column>
+	<column name="ime">
+		<type name="text" length="0"/>
+	</column>
+	<column name="prezime">
+		<type name="text" length="0"/>
+	</column>
+	<column name="adresa">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="prodavac_pk" type="pk-constr" table="limundoaukcija.prodavac">
+		<columns names="korisnicko_ime" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="proizvod" layer="0" collapse-mode="1" max-obj-count="7">
+	<schema name="limundoaukcija"/>
+	<position x="480" y="500"/>
+	<column name="id_proizvoda" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="pocetna_cena">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ponuda_cene">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="krajnja_cena">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="datum">
+		<type name="text" length="0"/>
+	</column>
+	<column name="idkorisnicko_ime">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="proizvod_pk" type="pk-constr" table="limundoaukcija.proizvod">
+		<columns names="id_proizvoda" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="kupac" layer="0" collapse-mode="2" max-obj-count="6">
+	<schema name="limundoaukcija"/>
+	<position x="1040" y="260"/>
+	<column name="korisnicko_ime" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="email">
+		<type name="text" length="0"/>
+	</column>
+	<column name="ime">
+		<type name="text" length="0"/>
+	</column>
+	<column name="prezime">
+		<type name="text" length="0"/>
+	</column>
+	<column name="adresa">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="kupac_pk" type="pk-constr" table="limundoaukcija.kupac">
+		<columns names="korisnicko_ime" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="povratne_informacije_kupca" layer="0" collapse-mode="1" max-obj-count="4">
+	<schema name="limundoaukcija"/>
+	<position x="1080" y="500"/>
+	<column name="id_kupca" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="komentar">
+		<type name="text" length="0"/>
+	</column>
+	<column name="ocena">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="korisnicko_imefk" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="povratne_informacije_kupca_pk" type="pk-constr" table="limundoaukcija.povratne_informacije_kupca">
+		<columns names="id_kupca" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="povratne_informacije_prod" layer="0" collapse-mode="1" max-obj-count="4">
+	<schema name="limundoaukcija"/>
+	<position x="200" y="100"/>
+	<column name="id_prodavca" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="komentar">
+		<type name="text" length="0"/>
+	</column>
+	<column name="ocena">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="korisnicko_imefk" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="povratne_informacije_prod_pk" type="pk-constr" table="limundoaukcija.povratne_informacije_prod">
+		<columns names="id_prodavca" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="kategorija" layer="0" collapse-mode="1" max-obj-count="2">
+	<schema name="limundoaukcija"/>
+	<position x="80" y="300"/>
+	<column name="id_kategorija" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="potkategorija">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="kategorija_pk" type="pk-constr" table="limundoaukcija.kategorija">
+		<columns names="id_kategorija" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="kupac_proizvod" layer="0" collapse-mode="1" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<position x="780" y="540"/>
+	<column name="korisnicko_ime" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id_proizvoda" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="kupac_proizvod_pk" type="pk-constr" table="limundoaukcija.kupac_proizvod">
+		<columns names="korisnicko_ime,id_proizvoda" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="korisnik" layer="0" collapse-mode="2" max-obj-count="1">
+	<schema name="limundoaukcija"/>
+	<role name="postgres"/>
+	<position x="800" y="60"/>
+	<column name="id_korisnika" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="korisnik_pk" type="pk-constr" table="limundoaukcija.korisnik">
+		<columns names="id_korisnika" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="korisnik_kupac" layer="0" collapse-mode="2" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<role name="postgres"/>
+	<position x="1040" y="80"/>
+	<column name="id_korisnika" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="korisnicko_ime" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="korisnik_kupac_pk" type="pk-constr" table="limundoaukcija.korisnik_kupac">
+		<columns names="id_korisnika,korisnicko_ime" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="korisnik_prodavac" layer="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<position x="520" y="60"/>
+	<column name="id_korisnika" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="korisnicko_ime" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="korisnik_prodavac_pk" type="pk-constr" table="limundoaukcija.korisnik_prodavac">
+		<columns names="id_korisnika,korisnicko_ime" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="kategorija_proizvod" layer="0" collapse-mode="1" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<position x="60" y="520"/>
+	<column name="id_kategorija" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id_proizvod" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="kategorija_proizvod_pk" type="pk-constr" table="limundoaukcija.kategorija_proizvod">
+		<columns names="id_kategorija,id_proizvod" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="informacije_proizvod_kupac" layer="0" collapse-mode="1" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<position x="460" y="320"/>
+	<column name="id_info" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id_proizvod" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="informacije_proizvod_kupac_pk" type="pk-constr" table="limundoaukcija.informacije_proizvod_kupac">
+		<columns names="id_info,id_proizvod" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="informacije_proizvod_prodavac" layer="0" collapse-mode="1" max-obj-count="3">
+	<schema name="limundoaukcija"/>
+	<position x="240" y="360"/>
+	<column name="id_proizvoda" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id_prodavca" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="informacije_proizvod_prodavac_pk" type="pk-constr" table="limundoaukcija.informacije_proizvod_prodavac">
+		<columns names="id_proizvoda,id_prodavca" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="korisnicko_imefk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.prodavac" table="limundoaukcija.proizvod">
+	<columns names="idkorisnicko_ime" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fkkorisnicko_ime" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.kupac" table="limundoaukcija.povratne_informacije_kupca">
+	<columns names="korisnicko_imefk" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fkkorisnickoime" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.prodavac" table="limundoaukcija.povratne_informacije_prod">
+	<columns names="korisnicko_imefk" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="kategorija_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.kategorija" table="limundoaukcija.kategorija">
+	<columns names="potkategorija" ref-type="src-columns"/>
+	<columns names="id_kategorija" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="korisnicko_imefk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.kupac" table="limundoaukcija.kupac_proizvod">
+	<columns names="korisnicko_ime" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="idproizvodafk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.proizvod" table="limundoaukcija.kupac_proizvod">
+	<columns names="id_proizvoda" ref-type="src-columns"/>
+	<columns names="id_proizvoda" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_korisnika" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.korisnik" table="limundoaukcija.korisnik_kupac">
+	<columns names="id_korisnika" ref-type="src-columns"/>
+	<columns names="id_korisnika" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_kupca" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.kupac" table="limundoaukcija.korisnik_kupac">
+	<columns names="korisnicko_ime" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="korisnikfk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.korisnik" table="limundoaukcija.korisnik_prodavac">
+	<columns names="id_korisnika" ref-type="src-columns"/>
+	<columns names="id_korisnika" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="prodavacfk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.prodavac" table="limundoaukcija.korisnik_prodavac">
+	<columns names="korisnicko_ime" ref-type="src-columns"/>
+	<columns names="korisnicko_ime" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="kategorijafk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.kategorija" table="limundoaukcija.kategorija_proizvod">
+	<columns names="id_kategorija" ref-type="src-columns"/>
+	<columns names="id_kategorija" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="proizvodfk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.proizvod" table="limundoaukcija.kategorija_proizvod">
+	<columns names="id_proizvod" ref-type="src-columns"/>
+	<columns names="id_proizvoda" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="infofk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.povratne_informacije_kupca" table="limundoaukcija.informacije_proizvod_kupac">
+	<columns names="id_info" ref-type="src-columns"/>
+	<columns names="id_kupca" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="proizvodFK" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.proizvod" table="limundoaukcija.informacije_proizvod_kupac">
+	<columns names="id_proizvod" ref-type="src-columns"/>
+	<columns names="id_proizvoda" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_proizvoda" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.proizvod" table="limundoaukcija.informacije_proizvod_prodavac">
+	<columns names="id_proizvoda" ref-type="src-columns"/>
+	<columns names="id_proizvoda" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_prodavcafk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="limundoaukcija.povratne_informacije_prod" table="limundoaukcija.informacije_proizvod_prodavac">
+	<columns names="id_prodavca" ref-type="src-columns"/>
+	<columns names="id_prodavca" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_proizvod_prodavac" type="relfk" layer="0"
+	 src-table="limundoaukcija.proizvod"
+	 dst-table="limundoaukcija.prodavac" reference-fk="korisnicko_imefk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_povratne_informacije_kupca_kupac" type="relfk" layer="0"
+	 src-table="limundoaukcija.povratne_informacije_kupca"
+	 dst-table="limundoaukcija.kupac" reference-fk="fkkorisnicko_ime"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_povratne_informacije_prod_prodavac" type="relfk" layer="0"
+	 src-table="limundoaukcija.povratne_informacije_prod"
+	 dst-table="limundoaukcija.prodavac" reference-fk="fkkorisnickoime"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_kategorija_kategorija" type="relfk" layer="0"
+	 src-table="limundoaukcija.kategorija"
+	 dst-table="limundoaukcija.kategorija" reference-fk="kategorija_fk"
+	 src-required="false" dst-required="false">
+	<line>
+		<position x="270.077" y="325.2"/>
+	<position x="270.077" y="277"/>
+	<position x="191.385" y="277"/>
+	</line>
+</relationship>
+
+<relationship name="rel_kupac_proizvod_kupac" type="relfk" layer="0"
+	 src-table="limundoaukcija.kupac_proizvod"
+	 dst-table="limundoaukcija.kupac" reference-fk="korisnicko_imefk"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="5.09299" y="-1.82656"/>
+	</label>
+</relationship>
+
+<relationship name="rel_kupac_proizvod_proizvod" type="relfk" layer="0"
+	 src-table="limundoaukcija.kupac_proizvod"
+	 dst-table="limundoaukcija.proizvod" reference-fk="idproizvodafk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_korisnik_prodavac_korisnik" type="relfk" layer="0"
+	 src-table="limundoaukcija.korisnik_kupac"
+	 dst-table="limundoaukcija.korisnik" reference-fk="id_korisnika"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-20.4895" y="37.1857"/>
+	</label>
+</relationship>
+
+<relationship name="rel_korisnik_prodavac_kupac" type="relfk" layer="0"
+	 src-table="limundoaukcija.korisnik_kupac"
+	 dst-table="limundoaukcija.kupac" reference-fk="id_kupca"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_korisnik_prodavac_korisnik1" type="relfk" layer="0"
+	 src-table="limundoaukcija.korisnik_prodavac"
+	 dst-table="limundoaukcija.korisnik" reference-fk="korisnikfk"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="6.43547" y="27.3503"/>
+	</label>
+</relationship>
+
+<relationship name="rel_korisnik_prodavac_prodavac" type="relfk" layer="0"
+	 src-table="limundoaukcija.korisnik_prodavac"
+	 dst-table="limundoaukcija.prodavac" reference-fk="prodavacfk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_kategorija_proizvod_kategorija" type="relfk" layer="0"
+	 src-table="limundoaukcija.kategorija_proizvod"
+	 dst-table="limundoaukcija.kategorija" reference-fk="kategorijafk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_kategorija_proizvod_proizvod" type="relfk" layer="0"
+	 src-table="limundoaukcija.kategorija_proizvod"
+	 dst-table="limundoaukcija.proizvod" reference-fk="proizvodfk"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_informacije_proizvod_kupac_povratne_informacije_kupca" type="relfk" layer="0"
+	 src-table="limundoaukcija.informacije_proizvod_kupac"
+	 dst-table="limundoaukcija.povratne_informacije_kupca" reference-fk="infofk"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="5.43547" y="-18.4407"/>
+	</label>
+</relationship>
+
+<relationship name="rel_informacije_proizvod_kupac_proizvod" type="relfk" layer="0"
+	 src-table="limundoaukcija.informacije_proizvod_kupac"
+	 dst-table="limundoaukcija.proizvod" reference-fk="proizvodFK"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_informacije_proizvod_prodavac_proizvod" type="relfk" layer="0"
+	 src-table="limundoaukcija.informacije_proizvod_prodavac"
+	 dst-table="limundoaukcija.proizvod" reference-fk="id_proizvoda"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_informacije_proizvod_prodavac_povratne_informacije_prod" type="relfk" layer="0"
+	 src-table="limundoaukcija.informacije_proizvod_prodavac"
+	 dst-table="limundoaukcija.povratne_informacije_prod" reference-fk="id_prodavcafk"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
